@@ -1,5 +1,2 @@
-.idea/*
 build
-node_modules
-coverage
-*.log
+/node_modules

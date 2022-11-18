@@ -1,5 +1,5 @@
-import { foo } from '.';
+import { foo } from ".";
 
-test('foo', () => {
+test("foo", () => {
   expect(foo).toMatchInlineSnapshot(`0`);
 });
