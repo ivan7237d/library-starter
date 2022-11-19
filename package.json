@@ -21,7 +21,7 @@
     "test": "run-p test:*",
     "test:tsc": "tsc --noEmit",
     "test:lint": "eslint --ignore-path .gitignore .",
-    "test:prettier": "prettier --ignore-path .gitignore --list-different .",
+    "test:prettier": "prettier --ignore-path .gitignore --list-different --ignore-unknown '**' '!pnpm-lock.yaml'",
     "test:jest": "jest",
     "watch:jest": "jest --watch"
   },
