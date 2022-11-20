@@ -21,7 +21,14 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-      - if: steps.publish.outputs.type != 'none'
-        uses: rickstaa/action-create-tag@v1
+      - name: Add tag
+        if: steps.publish.outputs.type != 'none'
+        uses: actions/github-script@v5
         with:
-          tag: ${{ steps.publish.outputs.version }}
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/v${{ steps.publish.outputs.version }}',
+              sha: context.sha
+            })
