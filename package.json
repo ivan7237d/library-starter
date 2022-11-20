@@ -1,6 +1,6 @@
 {
   "name": "library-starter",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "A library starter template",
   "repository": "https://github.com/ivan7237d/library-starter.git",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "build": "run-p --print-label build:*",
     "build:main": "tsc",
     "build:module": "tsc -p tsconfig.module.json",
-    "test": "run-p --print-label test:*",
+    "test": "run-p --print-label build 'test:!(tsc)'",
     "test:tsc": "tsc --noEmit",
     "test:lint": "eslint --ignore-path .gitignore .",
     "test:prettier": "prettier --ignore-path .gitignore --list-different --ignore-unknown '**' '!pnpm-lock.yaml'",
